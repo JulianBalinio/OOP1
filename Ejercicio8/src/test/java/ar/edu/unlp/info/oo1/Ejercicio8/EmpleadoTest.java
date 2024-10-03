@@ -11,9 +11,9 @@ public class EmpleadoTest {
 	private EmpleadoJerarquico empleadoJ;
 	private Gerente gerente;
 	
-	@Test
+	@BeforeEach
 	void setUp() throws Exception {
-		this.empleado = new Empleado("Juan")
+		this.empleado = new Empleado("Juan");
 		this.empleadoJ = new EmpleadoJerarquico("Nelsi");
 		this.gerente = new Gerente("Pablo");
 	}

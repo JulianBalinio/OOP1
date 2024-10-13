@@ -3,6 +3,7 @@ package ar.edu.unlp.info.oo1.Ejercicio15;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
 public class DistribuidoraTest {
 
@@ -29,6 +30,7 @@ public class DistribuidoraTest {
         Factura factura = distribuidora.emitirFactura(usuario1);
 
         assertNotNull(factura);
+        assertEquals(LocalDate.now(), factura.getFecha());
         assertEquals(usuario1, factura.getUsuario());
         double montoEsperado = (100 * 10) * 0.9;
         assertEquals(montoEsperado, factura.getMontoFinal(), 0.01); // Tolerancia 0.01
@@ -40,6 +42,7 @@ public class DistribuidoraTest {
         Factura factura = distribuidora.emitirFactura(usuario2);
 
         assertNotNull(factura);
+        assertEquals(LocalDate.now(), factura.getFecha());
         assertEquals(usuario2, factura.getUsuario());
         double montoEsperado = 100 * 10;
         assertEquals(montoEsperado, factura.getMontoFinal(), 0.01); // Tolerancia 0.01
@@ -50,7 +53,6 @@ public class DistribuidoraTest {
     	usuario3.agregarConsumo(new Consumo(100, 100));
     	Factura factura = distribuidora.emitirFactura(usuario3);
     	assertNull(factura);
-  
     }
 
     @Test

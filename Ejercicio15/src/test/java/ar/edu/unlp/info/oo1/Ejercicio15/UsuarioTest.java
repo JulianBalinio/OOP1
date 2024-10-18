@@ -1,13 +1,15 @@
 package ar.edu.unlp.info.oo1.Ejercicio15;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-
 
 public class UsuarioTest {
 
@@ -18,8 +20,8 @@ public class UsuarioTest {
 	
 	@BeforeEach
 	void setUp() {
-		user = new Usuario("Julian", "Calle1");
 		ct = new CuadroTarifario(20);
+		user = new Usuario("Julian", "Calle1", ct);
 		
 		c1 = new Consumo(100, 60);
 		c2 = new Consumo(100, 100);
@@ -42,17 +44,17 @@ public class UsuarioTest {
 	@Test
 	void testConsumo() {
 		assertEquals(c3, user.ultimoConsumo());
-		assertEquals(6000, user.getCostoConsumo(ct.getPrecioKwh()));
+		assertEquals(5400, user.getCostoConsumo());
 		
 		Consumo c4 = new Consumo(100, 50);
 		user.agregarConsumo(c4);
 		assertEquals(c4, user.ultimoConsumo());
-		assertEquals(2000, user.getCostoConsumo(ct.getPrecioKwh()));
+		assertEquals(1800, user.getCostoConsumo());
 		
 		Consumo c5 = new Consumo(200, 150);
 		user.agregarConsumo(c5);
 		assertEquals(c5, user.ultimoConsumo());
-		assertEquals(4000, user.getCostoConsumo(ct.getPrecioKwh()));
+		assertEquals(4000, user.getCostoConsumo());
 	}
 	
 	@Test
@@ -62,5 +64,13 @@ public class UsuarioTest {
 		Consumo c4 = new Consumo(100, 100);
 		user.agregarConsumo(c4);
 		assertFalse(user.tieneBonificacion());	
+	}
+	
+	@Test
+	void testEmitirFactura() {
+		Factura fac = user.emitirFactura(user);
+		assertEquals(5400, fac.getMontoFinal());
+		assertTrue(fac.getBonificacion());
+		assertEquals(LocalDate.now(), fac.getFecha());
 	}
 }

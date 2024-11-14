@@ -1,0 +1,19 @@
+package ar.edu.unlp.info.oo1.Ejercicio25_Veterinaria;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Veterinario {
+
+	private String nombre;
+	private double honorarios;
+	
+	public Veterinario(String nombre, double honorarios) {
+		this.nombre = nombre;
+		this.honorarios = honorarios;
+	}
+	
+	public double getHonorarios() {
+		return this.honorarios;
+	}
+}

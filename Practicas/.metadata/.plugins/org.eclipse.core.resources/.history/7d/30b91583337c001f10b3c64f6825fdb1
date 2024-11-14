@@ -1,0 +1,42 @@
+package ar.edu.unlp.info.oo1.Ejercicio11;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
+public class InversionesTest {
+
+	private InversionEnAcciones iea1, iea2, iea3;
+	//private PlazoFijo pf, pf1, pf2;
+	private Inversor inversor;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		this.inversor = new Inversor("Julian");
+		
+		this.iea1 = new InversionEnAcciones("Nvidia", 5, 1000);
+		this.iea2 = new InversionEnAcciones("Apple", 10, 500);
+		this.iea3 = new InversionEnAcciones("AMD", 2, 2000);
+		
+	}
+	
+	@Test
+	void testInversor() {
+		assertEquals(0, this.inversor.valorActual());
+		this.inversor.agregarInversion(iea1);
+		assertEquals(5000, this.inversor.valorActual());
+		this.inversor.agregarInversion(iea3);
+		assertEquals(9000, this.inversor.valorActual());
+	}
+	
+	@Test
+	void testInversionEnAcciones() {
+		assertEquals(1000, this.iea1.getValorUnitario());
+		assertEquals(500, this.iea2.getValorUnitario());
+		assertEquals(2000, this.iea3.getValorUnitario());
+		
+		assertEquals(1000, this.iea1.getValorActual());
+	}
+}

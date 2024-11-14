@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\OOP1\Ejercicio24-PoolCar\src\test\java\ar\edu\unlp\info\oo1\Ejercicio24_PoolCar\ViajeTest.java"/>
+			<item value="D:\OOP1\Ejercicio23-MercadoDeObjetos\src\main\java\ar\edu\unlp\info\oo1\Ejercicio23_MercadoDeObjetos\Cliente.java"/>
+			<item value="D:\OOP1\Ejercicio22-EstadisticasClienteCorreo\src\test\java\ar\edu\unlp\info\oo1\Ejercicio22_EstadisticasClienteCorreo\CarpetaTest.java"/>
+			<item value="D:\OOP1\Ejercicio17-Propiedades\src\main\java\ar\edu\unlp\info\oo1\Ejercicio17\DateLapse.java"/>
+			<item value="D:\OOP1\Ejercicio17\src\main\java\ar\edu\unlp\info\oo1\Ejercicio17\DateLapse.java"/>
+			<item value="D:\OOP1\Ejercicio15"/>
+			<item value="D:\OOP1\Ejercicio14"/>
+			<item value="D:\OOP1\Ejercicio12\src\main\java\ar\edu\unlp\info\oo1\Ejercicio12\Cilindro.java"/>
+			<item value="D:\OOP1\Ejercicio10\src\main\java\ar\edu\unlp\info\oo1\Ejercicio10\JobScheduler.java"/>
+			<item value="D:\OOP1\Ejercicio5"/>
+			<item value="D:\OOP1\Ejercicio1"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="defaultLocal"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="ar.edu.unlp.info.oo1.Ejercicio25_Veterinaria"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio24_PoolCar"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio23_MercadoDeObjetos"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio22_EstadisticasClienteCorreo"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio21_Bag"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio20_LiquidacionHaberes"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio18_PoliticasCancelacionExt17"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio18"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio17"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio16"/>
+			<item value="ar.edu.unlp.info.oo1.Ejercicio15"/>
+			<item value="Ejercicio15.Ejercicio15"/>
+			<item value="Ejercicio15"/>
+		</list>
+		<list key="groupId">
+			<item value="ar.edu.unlp.info.oo1"/>
+			<item value="Ejercicio15"/>
+		</list>
+		<list key="artifactId">
+			<item value="Ejercicio25-Veterinaria"/>
+			<item value="Ejercicio24-PoolCar"/>
+			<item value="Ejercicio23-MercadoDeObjetos"/>
+			<item value="Ejercicio22-EstadisticasClienteCorreo"/>
+			<item value="Ejercicio21-Bag"/>
+			<item value="Ejercicio20-LiquidacionHaberes"/>
+			<item value="Ejercicio18-PoliticasCancelacionExt17"/>
+			<item value="Ejercicio18"/>
+			<item value="Ejercicio17"/>
+			<item value="Ejercicio16"/>
+			<item value="Ejercicio15"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
+		<list key="archetypeGroupId">
+			<item value="io.github.unlp-oo"/>
+		</list>
+		<list key="archetypeArtifactId">
+			<item value="archetype"/>
+		</list>
+		<list key="archetypeVersion">
+			<item value="1.0.0"/>
+		</list>
+		<list key="repositoryUrl">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

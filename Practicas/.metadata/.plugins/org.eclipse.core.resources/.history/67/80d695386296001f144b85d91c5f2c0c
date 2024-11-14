@@ -1,0 +1,42 @@
+package ar.edu.unlp.info.oo1.Ejercicio20_LiquidacionHaberes;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empleado {
+	
+	private String nombre;
+	private String apellido;
+	private int cuil;
+	private LocalDate fechaNac;
+	private boolean conyugeACargo;
+	private boolean hijosACargo;
+	private List<Contrato> contratos;
+	
+	public Empleado(String nombre, String apellido, int cuil, LocalDate fechaNac, boolean hijosACargo) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.cuil = cuil;
+		this.fechaNac = fechaNac;
+		this.hijosACargo = hijosACargo;
+		this.contratos = new ArrayList<>();
+	}
+	
+	public boolean tieneConyuge() {
+		return this.conyugeACargo;
+	}
+	
+	public boolean tieneHijos() {
+		return this.hijosACargo;
+	}
+	
+	public List<Contrato> getContratos() {
+		return this.contratos;
+	}
+	
+	public void agregarContrato() {
+	}
+	
+	
+}

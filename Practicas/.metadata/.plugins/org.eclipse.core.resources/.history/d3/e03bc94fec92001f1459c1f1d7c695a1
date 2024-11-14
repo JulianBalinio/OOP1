@@ -1,0 +1,27 @@
+package ar.edu.unlp.info.oo1.Ejercicio19_ServicioEnvioPaquetes;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public abstract class Cliente {
+	
+	private String direccion;
+	private List<Envio> envios;
+	
+	public Cliente(String direccion) {
+		this.direccion = direccion;
+		this.envios = new ArrayList<>();
+	}
+	
+	public String getDireccion() {
+		return this.direccion;
+	}
+	
+	public List<Envio> getEnvios(){
+		return this.envios;
+	}
+	
+	public void agregarEnvio(Envio envio) {
+		this.envios.add(envio);
+	}
+}

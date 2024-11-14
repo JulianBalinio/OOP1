@@ -1,0 +1,78 @@
+package ar.edu.unlp.info.oo1.Ejercicio18_PoliticasCancelacionExt17;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+public class PropiedadTest {
+	
+	protected Propiedad propiedad, propiedad2;
+	protected Reserva r1, r2, r3;
+	protected Usuario user, inquilino;
+	protected DateLapse lapso, lapso2, lapso3;
+	
+	@BeforeEach
+	void setUp() {
+		propiedad = new Propiedad("Prop", "Calle 1", 100);
+		propiedad2 = new Propiedad("Prop2", "Calle 2", 200);
+		
+		propiedad.setPolitica(new CancelacionFlexible());
+		propiedad2.setPolitica(new CancelacionModerada());
+		
+		user = new Usuario("Julian", "Calle", 12345);
+		inquilino = new Usuario("Nailuj", "LLeca", 54321);
+		
+		// Usamos fechas relativas para evitar errores en fechas fijas.
+		lapso = new DateLapse(LocalDate.now().plusDays(3), LocalDate.now().plusDays(6));  // 3 dias desp
+		lapso2 = new DateLapse(LocalDate.now().plusDays(1), LocalDate.now().plusDays(15)); // Futuro lejano
+		lapso3 = new DateLapse(LocalDate.now().plusDays(7), LocalDate.now().plusDays(15));  // Solapa con lapso 1, cumple la semana
+		
+		r1 = new Reserva(user, propiedad2, lapso);
+		r2 = new Reserva(inquilino, propiedad, lapso2);
+		r3 = new Reserva(user, propiedad2, lapso3);
+		
+		propiedad2.agregarReserva(r1);
+		propiedad.agregarReserva(r2);
+		propiedad2.agregarReserva(r3);
+	}
+	
+	@Test
+	void testContiene() {
+		assertTrue(propiedad2.contieneReserva(r1));
+		assertTrue(propiedad.contieneReserva(r2));
+		assertFalse(propiedad.contieneReserva(r3));
+		assertFalse(propiedad2.contieneReserva(r2));
+	}
+	
+	@Test
+	void testEliminar() {
+		assertEquals(2, propiedad2.getReservas().size());
+		propiedad2.eliminarReserva(r1);
+		assertEquals(1, propiedad2.getReservas().size());
+		
+		propiedad2.eliminarReserva(r3);
+		assertEquals(0, propiedad2.getReservas().size());
+	}
+	
+	@Test
+	void testCancelarReservaModerada() {
+		propiedad2.cancelarReserva(r1);
+		assertEquals(300, user.getReembolso());
+		assertEquals(1, propiedad2.getReservas().size());
+		
+		//+300 de la primer reserva
+		propiedad2.cancelarReserva(r3);
+		assertEquals(1900, user.getReembolso());
+		assertEquals(0, propiedad2.getReservas().size());
+	}
+	
+	
+	@Test
+	void testCancelarReservaPoliticaFlexible() {
+		assertTrue(propiedad.cancelarReserva(r2));  
+		assertEquals(1400, inquilino.getReembolso());
+	}
+}

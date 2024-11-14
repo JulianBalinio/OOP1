@@ -1,0 +1,21 @@
+package ar.edu.unlp.info.oo1.Ejercicio17;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class OOBnB {
+	
+	private List<Usuario> usuarios;
+	private List<Reserva> reservas;
+	
+	public OOBnB() {
+		this.usuarios = new ArrayList<>();
+		this.reservas = new ArrayList<>();
+	}
+	
+		
+	//Este metodo no va aca, iria en la clase OOBnB. El metodo dice DADA una propiedad y un periodo(from / to)
+	public boolean consultarDisponibilidad(DateLapse lapse) {
+		return this.reservas.stream().noneMatch(reserva -> reserva.isOverlapsed(lapse));
+	}
+}

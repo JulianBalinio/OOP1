@@ -1,0 +1,26 @@
+package ar.edu.unlp.info.oo1.Ejercicio23_MercadoDeObjetos;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Vendedor extends Persona {
+	
+	private Map<Producto, Integer> productos;
+	
+	public Vendedor(String direccion) {
+		super(direccion);
+		this.productos = new HashMap<>();
+	}
+	
+	public void agregarProducto(Producto producto, int cantidad) {
+		this.productos.put(producto, cantidad);
+	}
+	
+	public boolean hayDisponibilidad(Producto producto, int cantidad) {
+		return this.productos.get(producto) >= cantidad;
+	}
+	
+	public boolean crearPedido(Cliente cliente, FormaPago pago, FormaEnvio envio, Producto producto, int cantidad) {
+		
+	}
+}

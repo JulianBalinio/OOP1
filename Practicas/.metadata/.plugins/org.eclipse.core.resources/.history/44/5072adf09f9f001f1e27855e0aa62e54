@@ -1,0 +1,31 @@
+package ar.edu.unlp.info.oo1.Ejercicio24_PoolCar;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.LocalDate;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+public class ViajeTest {
+	
+	protected Pasajero p1, p2, p3, p4, p5, p6;
+	protected Conductor conductor;
+	protected Viaje viaje;
+	protected Vehiculo vehiculo;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		
+		p1 = new Pasajero("Ju", 1500);
+		p2 = new Pasajero("Li", 500);
+		p3 = new Pasajero("An", 700);
+	
+		
+		vehiculo = new Vehiculo(conductor, "descripcion", 5, 1997, 40000.0);
+		conductor = new Conductor("Chofer", 1200, vehiculo);
+
+		viaje = conductor.registrarViaje("Berisso", "Bs. As.", 1400, LocalDate.now().plusDays(5));
+	}
+}

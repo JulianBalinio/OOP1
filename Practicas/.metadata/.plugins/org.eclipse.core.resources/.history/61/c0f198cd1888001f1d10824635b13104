@@ -1,0 +1,9 @@
+package ar.edu.unlp.info.oo1.Ejercicio15;
+
+public class Consumo {
+
+	public Consumo() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

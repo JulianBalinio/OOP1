@@ -1,0 +1,22 @@
+package ar.edu.unlp.info.oo1.Ejercicio17;
+
+public class Reserva {
+
+	private Usuario usuario;
+	private Propiedad propiedad;
+	private DateLapse lapso;
+	
+	public Reserva(Usuario usuario, Propiedad propiedad, DateLapse lapso) {
+		this.usuario = usuario;
+		this.propiedad = propiedad;
+		this.lapso = lapso;
+	}
+	
+	public double calcularPrecio() {
+		return this.lapso.sizeInDays() * this.propiedad.getPrecioNoche();
+	}
+	
+	public boolean isOverlapsed(DateLapse lapso) {
+		return this.lapso.overlapse(lapso);
+	}
+}

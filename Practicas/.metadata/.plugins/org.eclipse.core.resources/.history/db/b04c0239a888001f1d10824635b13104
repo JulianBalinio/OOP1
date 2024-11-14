@@ -1,0 +1,9 @@
+package ar.edu.unlp.info.oo1.Ejercicio15;
+
+public class Distribuidora {
+
+	public Distribuidora() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

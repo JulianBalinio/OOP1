@@ -1,0 +1,14 @@
+package ar.edu.unlp.info.oo1.Ejercicio15;
+
+public class Usuario {
+	
+	private String nombre;
+	private Domicilio domicilio;
+	
+	public Usuario(String nombre, Domicilio domicilio) {
+		this.nombre = nombre;
+		this.domicilio = domicilio;
+	}
+	
+	public String getNoombre()
+}

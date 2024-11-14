@@ -1,0 +1,48 @@
+package ar.edu.unlp.info.oo1.Ejercicio17;
+
+import java.util.List;
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class OOBnB {
+	
+	private List<Usuario> usuarios;
+	private List<Reserva> reservas;
+	
+	public OOBnB() {
+		this.usuarios = new ArrayList<>();
+		this.reservas = new ArrayList<>();
+	}
+	
+	
+	public void registrarUsuario(Usuario usuario) {
+		this.usuarios.add(usuario);
+	}
+	
+	public boolean consultarDisponibilidad(Propiedad propiedad, DateLapse lapse) {
+		return propiedad.getReservas().stream().noneMatch(reserva -> reserva.isOverlapsed(lapse));
+	}
+	
+	private void agregarReserva(Reserva reserva) {
+		this.reservas.add(reserva);
+	}
+	
+	private void eliminarReserva(Reserva reserva) {
+		this.reservas.remove(reserva);
+	}
+	
+	public boolean crearReserva(Usuario usuario, Propiedad propiedad, DateLapse lapse) {
+		if(this.consultarDisponibilidad(propiedad, lapse)) {
+			Reserva reserva = new Reserva(usuario, propiedad, lapse);
+			this.agregarReserva(reserva);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean cancelarReserva(Reserva reserva) {
+		if (LocalDate.now().isBefore(reserva.getLapse().getFrom())) {
+			reserva.getPropiedad().eliminarReserva(reserva);
+		}
+	}
+}

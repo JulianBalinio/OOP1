@@ -1,0 +1,17 @@
+package ar.edu.unlp.info.oo1.Ejercicio25_Veterinaria;
+
+import java.time.LocalDate;
+
+public class Consulta extends ServicioMedico {
+
+	private Veterinario vet;
+	private LocalDate fechaAtencion;
+
+	public Consulta(Mascota mascota, Veterinario vet, LocalDate fechaAtencion) {
+		super(mascota);
+		this.vet = vet;
+		this.fechaAtencion = fechaAtencion;
+	}
+	
+	
+}

@@ -1,0 +1,24 @@
+package ar.edu.unlp.info.oo1.Ejercicio20_LiquidacionHaberes;
+
+import java.time.LocalDate;
+
+public abstract class Contrato {
+
+	private LocalDate fechaInicio;
+	private Empleado empleado;
+	
+	public Contrato(Empleado empleado, LocalDate fechaInicio) {
+		this.fechaInicio = fechaInicio;
+		this.empleado = empleado;
+	}
+	
+	public LocalDate getFechaInicio() {
+		return this.fechaInicio;
+	}
+	
+	public Empleado getEmpleado() {
+		return this.empleado;
+	}
+	
+	public abstract double sueldo();	
+}

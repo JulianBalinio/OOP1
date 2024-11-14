@@ -1,0 +1,45 @@
+package ar.edu.unlp.info.oo1.Ejercicio20_LiquidacionHaberes;
+
+import java.time.LocalDate;
+
+public class ContratoDePlanta extends Contrato {
+	
+	private double sueldoMensual;
+	private boolean conyugeACargo;
+	private double montoPorConyuge;
+	private double montoPorHijos;
+	
+	public ContratoDePlanta(LocalDate fechaInicio, double sueldoMensual
+							, boolean conyugeACargo, double montoPorConyuge
+							, double montoPorHijos) {
+		super(fechaInicio);
+		this.sueldoMensual = sueldoMensual;
+		this.conyugeACargo = conyugeACargo;
+		this.montoPorConyuge = montoPorConyuge;
+		this.montoPorHijos = montoPorHijos;
+	}
+	
+	public boolean tieneConyugeACargo() {
+		return this.conyugeACargo;
+	}
+	
+	public boolean tieneHijosACargo() {
+		return this.tieneHijosACargo();
+	}
+	
+	public double getMontoPorConyuge() {
+		return this.montoPorConyuge;
+	}
+	
+	public double getMontoPorHijos() {
+		return this.montoPorHijos;
+	}
+	
+	public double sueldo() {
+		double sueldo = this.sueldoMensual;
+		if (this.tieneConyugeACargo()) sueldo += this.getMontoPorConyuge();
+		if (this.tieneHijosACargo()) sueldo += this.getMontoPorHijos();
+		return sueldo;
+	}
+	
+}

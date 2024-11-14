@@ -1,0 +1,29 @@
+package ar.edu.unlp.info.oo1.Ejercicio13;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Carpeta {
+	
+	private String nombre;
+	private List<Email> emails;
+	
+	public Carpeta(String nombre) {
+		this.nombre = nombre;
+		this.emails = new ArrayList<>();
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public void agregarEmail(Email email) {
+		this.emails.add(email);
+	}
+	
+	public boolean eliminarEmail(Email email) {
+		return this.emails.remove(email);
+	}
+	
+	 	
+}

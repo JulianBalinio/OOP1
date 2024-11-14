@@ -1,0 +1,37 @@
+package ar.edu.unlp.info.oo1.Ejercicio15;
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class Usuario {
+	
+	private String nombre;
+	private String domicilio;
+	private List<Consumo> consumos;
+	private List<Factura> facturas;
+	
+	public Usuario(String nombre, String Domicilio) {
+		this.nombre = nombre;
+		this.domicilio = domicilio;
+		this.facturas = new ArrayList<>();
+		this.consumos = new ArrayList<>();
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public String getDomicilio() {
+		return this.domicilio;
+	}
+	
+	public List<Consumos> getConsumos(){
+		return this.consumos;
+	}
+	
+	public List<Facturas> getFacturas(){
+		return this.facturas;
+	}
+	
+	
+}

@@ -1,0 +1,13 @@
+package ar.edu.unlp.info.oo1.Ejercicio19_ServicioEnvioPaquetes;
+
+import java.time.LocalDate;
+
+public class EnvioLocal extends Envio{
+	
+	private boolean rapido;
+	
+	public EnvioLocal(LocalDate fechaDespacho, String dirOrigen, String dirDestino, boolean rapido) {
+		super(fechaDespacho, dirOrigen, dirDestino);
+		this.rapido = rapido;
+	}
+}

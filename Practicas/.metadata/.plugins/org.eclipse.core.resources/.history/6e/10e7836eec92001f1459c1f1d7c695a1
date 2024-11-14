@@ -1,0 +1,11 @@
+package ar.edu.unlp.info.oo1.Ejercicio19_ServicioEnvioPaquetes;
+
+public class PersonaFisica extends Cliente {
+
+	private String dni;
+	
+	public PersonFisica(String nombre, String direccion, int dni) {
+		super(nombre, direccion);
+		this.dni = dni;
+	}
+}

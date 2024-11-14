@@ -1,0 +1,11 @@
+package ar.edu.unlp.info.oo1.Ejercicio13;
+
+public class Archivo {
+	
+	private String nombre;
+	private int tamaño;
+	
+	public Archivo (String nombre) {
+		this.nombre = nombre;
+	}
+}

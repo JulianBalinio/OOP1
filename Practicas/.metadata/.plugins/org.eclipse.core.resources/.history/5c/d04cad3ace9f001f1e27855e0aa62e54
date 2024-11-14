@@ -1,0 +1,30 @@
+package ar.edu.unlp.info.oo1.Ejercicio24_PoolCar;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import java.time.LocalDate;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+public class ConductorTest {
+	
+	protected Vehiculo v1, v2;
+	protected Conductor conductor1, conductor2;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		conductor1 = new Conductor("Chofer", 1200, v1);
+		conductor2 = new Conductor("Chofer", 1200, v2);
+		v1 = new Vehiculo(conductor1, "descripcion", 5, 1997, 40000.0);
+		v2 = new Vehiculo(conductor2, "descripcion", 5, 1997, 40000.0);
+	}
+	
+	@Test
+	void testVehiculo() {
+		assertEquals(v1, conductor1.getVehiculo());
+		assertNotEquals(v2, conductor1.getVehiculo());
+		assertNotEquals(v1, conductor2.getVehiculo());
+		assertEquals(v2, conductor2.getVehiculo());
+	}
+}

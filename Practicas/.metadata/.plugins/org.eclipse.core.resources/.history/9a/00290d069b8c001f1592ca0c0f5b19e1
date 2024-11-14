@@ -1,0 +1,51 @@
+package ar.edu.unlp.info.oo1.Ejercicio17;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+
+public class OOBnBTest {
+
+    private OOBnB sistema;
+    private Usuario propietario, inquilino1, inquilino2;
+    private Propiedad p1, p2;
+    private DateLapse lapso1, lapso2, lapso3;
+
+    @BeforeEach
+    void setUp() {
+        sistema = new OOBnB();
+
+        propietario = sistema.registrarUsuario("Julian", "Mi direccion", 12345);
+
+        p1 = sistema.registrarPropiedad("Casa 1", "Calle 1", 100, propietario);
+        p2 = sistema.registrarPropiedad("Casa 2", "Calle 2", 200, propietario);
+    
+        DateLapse lapso1 = new DateLapse(LocalDate.of(2024, 10, 1), LocalDate.of(2024, 10, 10));
+        DateLapse lapso2 = new DateLapse(LocalDate.of(2024, 10, 11), LocalDate.of(2024, 10, 21));
+        DateLapse lapso3 = new DateLapse(LocalDate.of(2024, 10, 5), LocalDate.of(2024, 10, 15));
+        
+        
+        sistema.crearReserva(inquilino1, p1, lapso1);
+        sistema.crearReserva(inquilino2, p1, lapso2);
+        sistema.crearReserva(inquilino2, p2, lapso3);
+        
+    }
+    
+    
+    
+    @Test
+    void testCrearReserva() {
+    	DateLapse lapso4 = new DateLapse(LocalDate.of(2024, 10, 26), LocalDate.of(2024, 10, 29));
+    	assertEquals(3, sistema.getReservas().size());
+    	sistema.crearReserva(inquilino1, p2, lapso4);
+    	assertEquals(4, sistema.getReservas().size()); 	
+    }
+    
+    @Test
+    void testCancelarReserva() {
+    	assertFalse(sistema.cancelarReserva(null));
+    }
+}

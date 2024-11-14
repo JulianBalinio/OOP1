@@ -1,0 +1,8 @@
+package ar.edu.unlp.info.oo1.Ejercicio23_MercadoDeObjetos;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Vendedor {
+	private Map<Producto, Integer> productos;
+}

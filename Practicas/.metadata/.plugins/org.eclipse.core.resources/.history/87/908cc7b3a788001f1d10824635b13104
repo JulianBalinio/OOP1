@@ -1,0 +1,32 @@
+package ar.edu.unlp.info.oo1.Ejercicio15;
+
+import java.time.LocalDate;
+
+public class Factura {
+	
+	private Usuario usuario;
+	private LocalDate fecha;
+	private boolean bonificacion;
+	private double montoFinal;
+	
+	public Factura(Usuario usuario, boolean bonificacion) {
+		this.usuario = usuario;
+		this.bonificacion = this.usuario.tieneBonificacion();
+		this.fecha = LocalDate.now();
+		this.montoFinal = this.calcularMontoFinal();
+	}
+	
+	public Usuario getUsuario() {
+		return this.usuario;
+	}
+	
+	public LocalDate getFecha() {
+		return this.fecha;
+	}
+	
+	public double calcularMontoFinal() {
+		return 0;
+	}
+	
+	
+}

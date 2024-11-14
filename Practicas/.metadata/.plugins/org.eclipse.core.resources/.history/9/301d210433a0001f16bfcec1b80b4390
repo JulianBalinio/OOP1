@@ -1,0 +1,12 @@
+package ar.edu.unlp.info.oo1.Ejercicio25_Veterinaria;
+
+public abstract class ServicioMedico {
+
+	private Mascota mascota;
+	
+	public ServicioMedico(Mascota mascota) {
+		this.mascota = mascota;
+	}
+	
+	public abstract double getCosto();
+}

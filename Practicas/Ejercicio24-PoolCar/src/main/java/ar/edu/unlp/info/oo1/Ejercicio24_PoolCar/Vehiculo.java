@@ -23,6 +23,10 @@ public class Vehiculo {
 	public int getCapacidad() {
 		return this.capacidad;
 	}
+	
+	public boolean hayLugar(int pasajeros) {
+		return pasajeros < this.capacidad;
+	}
 	//Considerar sacar conductor de constructor y asignarlo por setter
 	//Considerar usar var booleana para chequear si el auto esta registrado o no para que no lo usen mas de 1 conductor
 }

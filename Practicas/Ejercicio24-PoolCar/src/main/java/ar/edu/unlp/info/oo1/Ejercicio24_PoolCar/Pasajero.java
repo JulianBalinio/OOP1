@@ -9,5 +9,8 @@ public class Pasajero extends Usuario{
 	public boolean registrarViaje(Viaje viaje) {
 		return viaje.registrarPasajero(this);
 	}
-
+	
+	public boolean tieneFondos(double cuota) {
+		return this.getSaldo() >= cuota;
+	}
 }

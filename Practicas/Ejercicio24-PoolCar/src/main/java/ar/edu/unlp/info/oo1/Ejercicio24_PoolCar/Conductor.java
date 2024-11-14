@@ -18,8 +18,5 @@ public class Conductor extends Usuario {
 	public Viaje registrarViaje(String origen, String destino, double costoTotal, LocalDate fecha) {
 		if (this.vehiculo != null) return new Viaje(origen, destino, costoTotal, this.vehiculo, fecha, this);
 		return null;
-	}
-	
-	//considerar usar metodo para agregar un auto en lugar de enviarlo por constructor
-	
+	}	
 }

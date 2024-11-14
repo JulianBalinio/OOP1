@@ -30,10 +30,10 @@ public class Viaje {
 		return LocalDate.now().plusDays(2).isBefore(this.fecha);
 	}
 	
-	public boolean hayLugar() {
-		return this.pasajeros.size() < this.vehiculo.getCapacidad();
- 	}
-	
+	private boolean quedanCupos() {
+		return this.vehiculo.hayLugar(this.totalPasajeros());
+	}
+
 	public int totalPasajeros() {
 		return this.pasajeros.size();
 	}
@@ -42,30 +42,11 @@ public class Viaje {
 		return this.costoTotal/ (this.totalPasajeros()+1);
 	}
 	
-	/*	
-	 * No me queda claro como manejar el descuento del Saldo
-	 * Si evaluo la cuota del viaje con la cantidad de pasajeros en el momento y descuento, los ultimos en registrar pagan un monto desigual
-	 * Tengo que evaluar con pasajeros en el momento y al llegar al cierre de lafecha de registro descontar?
-	 * O evaluo la cuota por pasajero en base a la capacidad maxima del vehiculo?
-	 * DE MOMENTO NO SE PIDE VALIDAR ESTO EN EL EJERCICO
-	*/
 	public boolean registrarPasajero(Pasajero pasajero) {
-		if (!this.hayLugar() || !this.aTiempo() || pasajero.getSaldo() < cuotaActualizada()){
+		if (!this.quedanCupos() || !this.aTiempo() || !pasajero.tieneFondos(this.cuotaActualizada())){
 			return false;
 		}
 		this.agregarPasajero(pasajero);
 		return true;
 	}
-	
-	/*public boolean finalizarRegistro() {
-		if (!this.aTiempo()) {
-			return false;	
-		}
-		double cuotaFinal = this.costoTotal / this.totalPasajeros();		
-		for (Usuario pasajero : pasajeros) {
-			pasajero.descontarSaldo(cuotaFinal);
-		}
-		return true;
-	}
-	*/
 }

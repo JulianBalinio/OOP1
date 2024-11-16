@@ -6,8 +6,12 @@ public class Pasajero extends Usuario{
 		super(nombre, saldo);
 	}
 	
-	public boolean registrarViaje(Viaje viaje) {
-		return viaje.registrarPasajero(this);
+	public boolean inscribirse(Viaje viaje) {
+		if(viaje.registrarPasajero(this)){
+			this.agregarViaje(viaje);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean tieneFondos(double cuota) {

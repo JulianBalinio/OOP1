@@ -29,24 +29,26 @@ public class Viaje {
 	private boolean aTiempo() {
 		return LocalDate.now().plusDays(2).isBefore(this.fecha);
 	}
-	
-	private boolean quedanCupos() {
-		return this.vehiculo.hayLugar(this.totalPasajeros());
-	}
 
 	public int totalPasajeros() {
 		return this.pasajeros.size();
 	}
 	
-	private double cuotaActualizada() {
-		return this.costoTotal/ (this.totalPasajeros()+1);
+	public double calcularCuota(int pasajeros) {
+		return this.costoTotal / pasajeros;
 	}
-	
+
 	public boolean registrarPasajero(Pasajero pasajero) {
-		if (!this.quedanCupos() || !this.aTiempo() || !pasajero.tieneFondos(this.cuotaActualizada())){
+		if (!this.vehiculo.hayLugar(this.totalPasajeros()) || !this.aTiempo() || !pasajero.tieneFondos(this.calcularCuota(this.totalPasajeros() + 1))){
 			return false;
 		}
 		this.agregarPasajero(pasajero);
 		return true;
 	}
+
+	public void realizar() {
+		for(Usuario pasajero: this.pasajeros) {
+			pasajero.descontarSaldo(this.calcularCuota(this.totalPasajeros()));
+		}
+	} 
 }

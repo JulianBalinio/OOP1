@@ -28,11 +28,11 @@ public class PasajeroTest {
 	
 	@Test
 	void testRegistroConSaldo() {
-		assertTrue(p1.registrarViaje(viaje));
+		assertTrue(p1.inscribirse(viaje));
 	}
 	
 	@Test
 	void testRegistroSinSaldo() {
-		assertFalse(p2.registrarViaje(viaje));
+		assertFalse(p2.inscribirse(viaje));
 	}
 }

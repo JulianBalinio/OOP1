@@ -11,4 +11,5 @@ public class EnvioExpress implements FormaEnvio {
 	public double costoEnvio(String dir1, String dir2) {
 		return 0.5 * cd.calcularDistancia(dir1, dir2);
 	}
+
 }

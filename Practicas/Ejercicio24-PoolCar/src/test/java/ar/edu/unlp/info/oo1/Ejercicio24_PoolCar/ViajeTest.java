@@ -30,9 +30,9 @@ public class ViajeTest {
 		viajeBarato = conductor.registrarViaje("Berisso", "Bs. As.", 1000, LocalDate.now().plusDays(5));
 		viajeCaro = conductor.registrarViaje("Berisso", "Salta", 3500, LocalDate.now().plusDays(10));
 	
-		p1.registrarViaje(viajeBarato);
-		p2.registrarViaje(viajeBarato);
-		p3.registrarViaje(viajeBarato);
+		p1.inscribirse(viajeBarato);
+		p2.inscribirse(viajeBarato);
+		p3.inscribirse(viajeBarato);
 	}
 	
 	
@@ -41,27 +41,27 @@ public class ViajeTest {
 	@Test
 	void testRegistroBarato() {
 		assertEquals(4, viajeBarato.totalPasajeros());
-		assertTrue(p4.registrarViaje(viajeBarato));
+		assertTrue(p4.inscribirse(viajeBarato));
 		assertEquals(5, viajeBarato.totalPasajeros());
-		assertFalse(p5.registrarViaje(viajeBarato));
+		assertFalse(p5.inscribirse(viajeBarato));
 		assertEquals(5, viajeBarato.totalPasajeros());
 	}
 	
 	@Test 
 	void testRegistroCaro() {
-		assertTrue(p1.registrarViaje(viajeCaro)); //Cuota 1750 (p1 = 1750)
-		assertFalse(p2.registrarViaje(viajeCaro)); //Cuota 1166 (p2 = 700)
-		assertFalse(p3.registrarViaje(viajeCaro)); //Cuota  1166 (p3 = 900)
-		assertFalse(p4.registrarViaje(viajeCaro));//Cuota 1166 (p4 = 200)
-		assertTrue(p5.registrarViaje(viajeCaro)); //Cuota 1166 (p5 = 2500)
+		assertTrue(p1.inscribirse(viajeCaro)); //Cuota 1750 (p1 = 1750)
+		assertFalse(p2.inscribirse(viajeCaro)); //Cuota 1166 (p2 = 700)
+		assertFalse(p3.inscribirse(viajeCaro)); //Cuota  1166 (p3 = 900)
+		assertFalse(p4.inscribirse(viajeCaro));//Cuota 1166 (p4 = 200)
+		assertTrue(p5.inscribirse(viajeCaro)); //Cuota 1166 (p5 = 2500)
 		assertEquals(3, viajeCaro.totalPasajeros());
 		
-		assertTrue(p3.registrarViaje(viajeCaro)); //Ahora puede. Cuota actual 875 (p3 = 900)
+		assertTrue(p3.inscribirse(viajeCaro)); //Ahora puede. Cuota actual 875 (p3 = 900)
 		assertEquals(4, viajeCaro.totalPasajeros());
-		assertTrue(p2.registrarViaje(viajeCaro)); //Puede poqrue la cuota = 700. Capacidad max alcanzada
+		assertTrue(p2.inscribirse(viajeCaro)); //Puede poqrue la cuota = 700. Capacidad max alcanzada
 		assertEquals(5, viajeCaro.totalPasajeros());
 		
-		assertFalse(p4.registrarViaje(viajeCaro)); //Podria porque si 3500/6 = 583,3. Pero capacidad max alcanzada
+		assertFalse(p4.inscribirse(viajeCaro)); //Podria porque si 3500/6 = 583,3. Pero capacidad max alcanzada
 	}
 	
 }

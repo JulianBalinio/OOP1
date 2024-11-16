@@ -1,0 +1,58 @@
+package ar.edu.unlp.info.oo1.Ejercicio23_MercadoDeObjetos;
+
+public class Pedido {
+
+	private Vendedor vendedor;
+	private FormaEnvio envio;
+	private FormaPago pago;
+	private Producto producto;
+	private int cantidad;
+	private double total;
+	
+	public Pedido(Vendedor vendedor, FormaEnvio envio, FormaPago pago, Producto producto, int cantidad, double total) {
+		this.vendedor = vendedor;
+		this.envio = envio;
+		this.pago = pago;
+		this.producto = producto;
+		this.cantidad = cantidad;
+		this.total = total;
+	}
+	
+	public Vendedor getVendedor() {
+		return this.vendedor;
+	}
+	
+	public Producto getProducto() {
+		return this.producto;
+	}
+	
+	public FormaEnvio getEnvio() {
+		return this.envio;
+	}
+	
+	public FormaPago getPago() {
+		return this.pago;
+	}
+	
+	public int getCantidad() {
+		return this.cantidad;
+	}
+	
+	public double getTotal() {
+		return this.total;
+	}
+
+	//Este metodo es correcto que este en la clase Cliente? Envidia de clases?
+	public Pedido crearPedido(Vendedor vendedor, FormaEnvio envio, FormaPago pago, Producto producto, int cantidad) {
+		if (!vendedor.tomarPedido(producto, cantidad)) {
+			return null;
+		}
+		double costoEnvio = envio.costoEnvio(this.getDireccion(), vendedor.getDireccion());
+		double costoPago = pago.costoAdicional();
+		double total = (producto.getPrecioUnit()	* cantidad) * costoPago + costoEnvio;
+		this.actualizarCompras(producto.getCategoria(), cantidad);
+		return new Pedido(vendedor, envio, pago, producto, cantidad, total);
+	}
+	
+	
+}
